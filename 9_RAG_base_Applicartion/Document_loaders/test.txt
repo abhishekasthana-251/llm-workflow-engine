@@ -1,0 +1,341 @@
+LangChain Document Loaders – Deep Learning File for TextLoader Practice
+
+This file is intentionally long and detailed to help in testing TextLoader, chunking, and Retrieval-Augmented Generation systems.
+
+--------------------------------------------------
+
+SECTION 1: INTRODUCTION TO RAG
+
+RAG stands for Retrieval-Augmented Generation.
+It combines retrieval of information with language generation.
+This allows models to use external knowledge.
+The knowledge can be private.
+The knowledge can be updated.
+The knowledge can be domain-specific.
+
+Large Language Models do not need retraining in RAG.
+Instead, they retrieve relevant information at runtime.
+This improves accuracy.
+This reduces hallucination.
+
+RAG is widely used in:
+- Chatbots
+- Question answering systems
+- Document search systems
+- AI assistants
+
+--------------------------------------------------
+
+SECTION 2: CORE COMPONENTS OF RAG
+
+There are four main components:
+
+1. Document Loaders
+2. Text Splitters
+3. Vector Databases
+4. Retrievers
+
+Each component plays a specific role.
+
+Document Loaders bring data into the system.
+Text Splitters divide data into chunks.
+Vector Databases store embeddings.
+Retrievers find relevant chunks.
+
+--------------------------------------------------
+
+SECTION 3: DOCUMENT LOADERS OVERVIEW
+
+Document Loaders are the first step.
+They load data from different sources.
+
+Sources include:
+- Text files
+- PDFs
+- Websites
+- CSV files
+- Databases
+
+The output is always standardized.
+
+--------------------------------------------------
+
+SECTION 4: DOCUMENT OBJECT STRUCTURE
+
+Each loaded document becomes a Document object.
+
+It has two main fields:
+
+1. page_content
+This contains the actual text.
+
+2. metadata
+This contains extra information.
+
+Metadata examples:
+- source
+- author
+- file path
+- page number
+
+This structure ensures consistency.
+
+--------------------------------------------------
+
+SECTION 5: TEXTLOADER EXPLAINED
+
+TextLoader is the simplest loader.
+
+It is used for:
+- .txt files
+- logs
+- code files
+
+It reads plain text.
+It does not require complex parsing.
+
+Example usage:
+
+from langchain.document_loaders import TextLoader
+
+loader = TextLoader("file.txt")
+documents = loader.load()
+
+--------------------------------------------------
+
+SECTION 6: HOW TEXTLOADER WORKS
+
+TextLoader reads the file.
+It converts the file into a Document object.
+
+The entire file becomes one document by default.
+The content goes into page_content.
+The file path goes into metadata.
+
+--------------------------------------------------
+
+SECTION 7: PRACTICAL NOTES ON TEXTLOADER
+
+TextLoader is best for:
+- simple datasets
+- testing pipelines
+- learning purposes
+
+It is not ideal for:
+- structured data
+- scanned documents
+- HTML content
+
+--------------------------------------------------
+
+SECTION 8: PYPDFLOADER
+
+PyPDFLoader is used for PDF files.
+
+It loads PDF page by page.
+Each page becomes a separate Document.
+
+This is useful for:
+- large PDFs
+- academic papers
+- reports
+
+Limitation:
+- struggles with scanned PDFs
+
+--------------------------------------------------
+
+SECTION 9: DIRECTORYLOADER
+
+DirectoryLoader loads multiple files.
+
+It scans a folder.
+It filters files using patterns.
+
+Example:
+- *.txt
+- *.pdf
+
+It is useful for batch processing.
+
+--------------------------------------------------
+
+SECTION 10: WEBBASELOADER
+
+WebBaseLoader extracts text from URLs.
+
+It removes HTML tags.
+It keeps readable text.
+
+Useful for:
+- articles
+- blogs
+- documentation
+
+--------------------------------------------------
+
+SECTION 11: CSVLOADER
+
+CSVLoader handles tabular data.
+
+Each row becomes a document.
+Each column becomes part of content.
+
+Useful for:
+- datasets
+- spreadsheets
+
+--------------------------------------------------
+
+SECTION 12: LOAD VS LAZY_LOAD
+
+There are two methods:
+
+load()
+Loads everything into memory.
+Fast for small data.
+
+lazy_load()
+Loads data step by step.
+Returns a generator.
+Better for large data.
+
+--------------------------------------------------
+
+SECTION 13: MEMORY MANAGEMENT
+
+Memory is important in RAG.
+
+Large datasets can crash systems.
+lazy_load prevents memory overload.
+
+Always choose method based on data size.
+
+--------------------------------------------------
+
+SECTION 14: CUSTOM DOCUMENT LOADERS
+
+Sometimes default loaders are not enough.
+
+You can create custom loaders.
+
+Steps:
+- Inherit BaseLoader
+- Define load method
+- Define lazy_load method
+
+--------------------------------------------------
+
+SECTION 15: WHY STANDARDIZATION MATTERS
+
+Standard format helps pipeline.
+
+All components expect same structure.
+
+Without standardization:
+- errors increase
+- complexity increases
+
+--------------------------------------------------
+
+SECTION 16: DATA FLOW IN RAG
+
+Step 1: Load documents
+Step 2: Split text
+Step 3: Create embeddings
+Step 4: Store in database
+Step 5: Retrieve relevant chunks
+
+--------------------------------------------------
+
+SECTION 17: TEXT SPLITTING INTRO
+
+Text is split into chunks.
+
+Why?
+Because models have token limits.
+
+Chunks improve retrieval.
+
+--------------------------------------------------
+
+SECTION 18: CHUNKING STRATEGIES
+
+Common strategies:
+- fixed size
+- sentence-based
+- semantic splitting
+
+--------------------------------------------------
+
+SECTION 19: VECTOR DATABASES
+
+Vector databases store embeddings.
+
+Examples:
+- FAISS
+- Chroma
+- Pinecone
+
+--------------------------------------------------
+
+SECTION 20: RETRIEVERS
+
+Retrievers find relevant chunks.
+
+They compare query embeddings.
+
+--------------------------------------------------
+
+SECTION 21: PRACTICE IDEAS
+
+Try loading this file.
+Print document content.
+Split into chunks.
+Create embeddings.
+
+--------------------------------------------------
+
+SECTION 22: DEBUGGING TIPS
+
+If loader fails:
+- check file path
+- check encoding
+- check file format
+
+--------------------------------------------------
+
+SECTION 23: COMMON MISTAKES
+
+Mistake 1:
+Using wrong loader
+
+Mistake 2:
+Loading huge file with load()
+
+Mistake 3:
+Ignoring metadata
+
+--------------------------------------------------
+
+SECTION 24: PERFORMANCE TIPS
+
+Use lazy_load for big data.
+Use chunking for efficiency.
+Use caching if possible.
+
+--------------------------------------------------
+
+SECTION 25: FINAL SUMMARY
+
+Document Loaders are the entry point.
+They standardize data.
+They enable RAG pipelines.
+
+Mastering loaders is essential.
+
+
+created by Campusx
+--------------------------------------------------
+
+END OF FILE
