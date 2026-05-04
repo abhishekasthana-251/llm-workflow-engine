@@ -1,0 +1,12 @@
+Tool Binding -> is a step where you register tools with a language Model(llm) so that 
+1- the llm knows what tool are available
+2-it knows what each tool does
+3- it know what input format to use(via schema)
+
+
+Tool Calling -> is a process where the llm decides during a conversation or task, that it needs to use a specific tool(fuctions)- and generates a structured output with:
+-> the name of the tool 
+-> and the arguments to call it with
+
+
+=>The LLM does not actually run the tool - it just suggests the tool and the input arguments. the actual execution is handled by langChain or by me

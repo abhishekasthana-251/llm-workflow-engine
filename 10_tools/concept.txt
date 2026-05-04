@@ -1,0 +1,29 @@
+A tool is just a python function(or api ) that is packaged in a way the llm can understand and call when needed 
+
+LLMs are great at -> Reasoning  , Language Generation
+
+
+ there are two type of tools -> 1 Built-in Tools , and 2 Custom Tools
+
+Agent ecosystem -> an ai agent is an llm powered system that can autonomously think , decide , and take actions using external tools or APIs to achieve a goal
+
+Agent -> Reasoning & Decision Making(LLM) + action(tool)
+
+
+BUILT-IN TOOL
+-it pre-Built, production-ready, required minimal or no setup
+
+DuckDuckGoSearchRun -> web search via DuckDuckGo
+wikipediaQueryRun -> wikipedia Summary
+ShellTool  -> Run shell commands
+.... and so on 
+
+
+
+#Custom Tools 
+A Custom tool is a tool that you define youself 
+
+
+#toolkits
+
+A toolkit is just a collection(bundle) of related tools that serve a common purpose packaged together for convenience and reusability
