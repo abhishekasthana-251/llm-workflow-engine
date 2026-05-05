@@ -10,3 +10,6 @@ Tool Calling -> is a process where the llm decides during a conversation or task
 
 
 =>The LLM does not actually run the tool - it just suggests the tool and the input arguments. the actual execution is handled by langChain or by me
+
+
+Tool Execution is the step where the actual python function is run using the input arguments that the LLM suggested during tool Calling

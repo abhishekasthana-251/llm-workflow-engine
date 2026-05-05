@@ -1,0 +1,7 @@
+Ai Agent-> an ai agent is an intelligent system that receives a high-level goal from a user, and autonomously plans, decides , and executes a sequence of actions by using external tools, APIs, or knowledge sources - all while maintaining context, reasoning over multiple steps, adapting to new information, and optimizing for the intended outcome.
+
+->goal-driven
+->autonomous planing
+->tool using
+->context-aware
+->adaptive
